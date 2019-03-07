@@ -52,6 +52,13 @@ class ReceiptTest extends TestCase {
         );
     }
 
+    public function testTotalException() {
+        $input = [0,2,5,8];
+        $coupon = 1.20;
+        $this->expectException('BadMethodCallException');
+        $this->Receipt->total($input, $coupon);
+    }
+
     //Lisame mock meetodi testPostTaxTotal, mis kasutab MockBuilder classi
     public function testPostTaxTotal() {
         $items = [1,2,5,8];
