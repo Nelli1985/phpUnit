@@ -26,4 +26,16 @@ class ReceiptTest extends TestCase {
             'When summing the total should equal 15'
         );
     }
+
+    // Test, mis kontrollib maksu arvutust
+    public function testTax() {
+        $inputAmount = 10.00;
+        $taxInput = 0.10;
+        $output = $this->Receipt->tax($inputAmount, $taxInput);
+        $this->assertEquals(
+            1.00,
+            $output,
+            'The tax calculation should equal 1.00'
+        );
+    }
 }
